@@ -20,4 +20,11 @@ defmodule Advent do
   defp round_is_valid(round) do
     round["red"] <= 12 and round["green"] <= 13 and round["blue"] <= 14
   end
+
+  def part2 do
+    @input
+      |> Enum.map(&parse_game/1)
+      |> Enum.map(fn %{"red" => red, "green" => green, "blue" => blue} -> red * green * blue end)
+      |> Enum.sum()
+  end
 end
